@@ -1,0 +1,576 @@
+:root {
+    /* 全般 */
+    --page-width: 960px;
+    --background-color: rgb(32, 32, 24);
+    --text-color: white;
+    --additional-text-color: gray;
+    --control-background-color: black;
+
+    /* ヘッダ */
+    --header-height: 50px;
+    --header-background-color: black;
+    --header-text-color: white;
+
+    /* フッタ */
+    --footer-background-color: black;
+    --footer-text-color: white;
+
+    /* トップページ/カテゴリページ/検索結果ページ */
+    --searchbox-icon: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62be6e5ccdc9b/search_white.png');
+    /* --searchbox-icon: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62bc48fb62d97/search_black.png'); */
+    /* --searchbox-icon: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62bc49299fcdb/search_gray.png'); */
+
+    --slide-arrow-left: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62c277263e8e7/arrow_left.png');
+    --slide-arrow-right: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62c276f50288b/arrow_right.png');
+
+    --item-column-num: 3;
+    --item-space: 30px;
+}
+
+/* 全般 */
+div {
+    border: 0px solid yellow;
+}
+
+.hrHeader {
+    margin: 0;
+}
+
+body {
+    color: var(--text-color);
+    font-family: "M PLUS Rounded 1c";
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダ全般 */
+header {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+}
+
+header a,
+header a:hover {
+    color: var(--header-text-color);
+    text-decoration: none;
+}
+
+/* ヘッダのナビゲーションメニュー */
+header #mainMenu {
+    height: var(--header-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header #mainMenu #shopLogo {
+    width: calc((100% - var(--page-width)) / 2);
+}
+
+header #mainMenu #shopLogo .logoImage {
+    height: 100%;
+}
+
+header #mainMenu #navigator nav {
+    width: var(--page-width);
+    font-family: "Nico Moji";
+    margin: auto;
+}
+
+header #mainMenu #navigator ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+}
+
+header #mainMenu #navigator li {
+    width: calc(100% / 4);
+    margin-left: 0;
+    margin-right: 0;
+    border-left: 1px dotted var(--text-color);
+    border-right: 1px dotted var(--text-color);
+}
+
+header #mainMenu #navigator li+li {
+    border-left: 0;
+}
+
+/* ヘッダのBASEメニュー */
+header #mainMenu #baseMenu {
+    width: calc((100% - var(--page-width)) / 2);
+}
+
+header #mainMenu #baseMenu ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    margin-right: 10px;
+    padding: 0;
+}
+
+header #mainMenu #baseMenu img {
+    height: calc(var(--header-height) - 10px);
+}
+
+/* メイン全般 */
+main {
+    width: var(--page-width);
+    margin: auto;
+    padding-top: calc(var(--header-height) + 10px);
+}
+
+main a,
+main a:hover {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* フッタ全般 */
+footer {
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
+}
+
+footer a,
+footer a:hover {
+    color: var(--footer-text-color);
+    text-decoration: none;
+}
+
+footer #siteMap {
+    width: var(--page-width);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* フッタのロゴ */
+footer #siteMap #shopLogo {
+    width: 20%;
+}
+
+footer #siteMap .logoImage {
+    width: 100%;
+}
+
+/* フッタの著作権表示 */
+footer #copyright {
+    width: var(--page-width);
+    margin: auto;
+    text-align: right;
+}
+
+/* トップページ/カテゴリページ/検索結果ページ */
+#mainIndexPage {
+    text-align: center;
+}
+
+/* トップページ/カテゴリページ/検索結果ページの検索ボタン */
+#mainIndexPage #searchArea {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#mainIndexPage #searchArea #searchText {
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 0.3em;
+    color: var(--text-color);
+    vertical-align: middle;
+    width: 170px;
+}
+
+#mainIndexPage #searchArea #searchButton {
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 0.3em;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+#mainIndexPage #searchArea #searchButton #searchButtonIcon {
+    background: var(--searchbox-icon) no-repeat;
+    background-size: 12px 12px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+}
+
+/* トップページのスライド */
+#mainIndexPage #autoSliderArea {
+    background-color: transparent;
+}
+
+#mainIndexPage #autoSliderArea img {
+    height: 100%;
+    object-fit: contain;
+}
+
+#mainIndexPage .bx-wrapper {
+    position: relative;
+}
+
+#mainIndexPage .bx-wrapper .bx-prev {
+    left: 10px;
+    background: var(--slide-arrow-left) no-repeat;
+}
+
+#mainIndexPage .bx-wrapper .bx-next {
+    right: 10px;
+    background: var(--slide-arrow-right) no-repeat;
+}
+
+#mainIndexPage .bx-wrapper .bx-controls-direction a {
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#mainIndexPage .bx-wrapper .bx-pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#mainIndexPage .bx-wrapper .bx-pager.bx-default-pager a {
+    background: black;
+    border-radius: 0.3em;
+    display: block;
+    opacity: 0.5;
+    text-indent: -9999px;
+    width: 15px;
+    height: 15px;
+}
+
+#mainIndexPage .bx-wrapper .bx-pager-item a.hover,
+#mainIndexPage .bx-wrapper .bx-pager-item a.active {
+    background: rgb(128, 128, 128);
+}
+
+/* トップページのショップメッセージ */
+#mainIndexPage #shopMessageArea {
+    margin-top: 20px;
+}
+
+/* カテゴリページのパンくず */
+#mainIndexPage #breadcrumbArea {
+    margin: 0;
+}
+
+#mainIndexPage #breadcrumbArea ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+#mainIndexPage #breadcrumbArea li:after {
+    content: ">";
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#mainIndexPage #breadcrumbArea li:last-child:after {
+    content: "";
+}
+
+/* カテゴリページの子カテゴリ */
+#mainIndexPage #categoryChildArea ul {
+    display: inline;
+    list-style: none;
+}
+
+/* トップページ/カテゴリページ/検索結果ページの商品一覧 */
+#mainIndexPage .indexPageSectionTitleArea {
+    margin-top: 20px;
+    font-family: "Nico Moji";
+    font-size: 2em;
+}
+
+#mainIndexPage #itemListArea {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#mainIndexPage #itemListArea #itemArea {
+    width: calc((var(--page-width) - (var(--item-space) * (var(--item-column-num) - 1))) / var(--item-column-num));
+    margin-bottom: var(--item-space);
+}
+
+#mainIndexPage #itemListArea #itemArea #itemImageArea {
+    width: calc((var(--page-width) - (var(--item-space) * (var(--item-column-num) - 1))) / var(--item-column-num));
+    height: calc((var(--page-width) - (var(--item-space) * (var(--item-column-num) - 1))) / var(--item-column-num));
+}
+
+#mainIndexPage #itemListArea #itemArea #itemImageArea img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+#mainIndexPage #itemListArea #itemArea #itemNameArea {
+    width: 100%;
+    height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#mainIndexPage #itemListArea #itemArea .itemPriceAraa {
+    width: 100%;
+    color: red;
+}
+
+#mainIndexPage #itemListArea #itemArea #itemDiscountRate {
+    color: red;
+    border: 1px solid red;
+    margin-right: 10px;
+}
+
+#mainIndexPage #itemListArea #itemArea #itemPriceAttention {
+    color: red;
+}
+
+/* 商品ページの上部 */
+#mainItemPage #itemMain {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 商品ページの画像 */
+#mainItemPage #itemMain #itemImageArea {
+    width: 60%;
+}
+
+#mainItemPage #itemMain #itemImageArea #unmovedSlider {
+    background-color: transparent;
+}
+
+#mainItemPage #itemMain #itemImageArea #unmovedSlider img {
+    height: 100%;
+    object-fit: contain;
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper {
+    position: relative;
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-prev {
+    left: 10px;
+    background: var(--slide-arrow-left) no-repeat;
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-next {
+    right: 10px;
+    background: var(--slide-arrow-right) no-repeat;
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-controls-direction a {
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager.bx-default-pager a {
+    background: black;
+    border-radius: 0.3em;
+    display: block;
+    opacity: 0.5;
+    text-indent: -9999px;
+    width: 15px;
+    height: 15px;
+}
+
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager-item a.hover,
+#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager-item a.active {
+    background: rgb(128, 128, 128);
+}
+
+#mainItemPage #itemMain #itemImageArea #unmovedSliderThumbnail {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#mainItemPage #itemMain #itemImageArea #unmovedSliderThumbnail img {
+    width: calc(var(--page-width) / 10);
+    height: auto;
+}
+
+/* 商品ページの基本情報 */
+#mainItemPage #itemMain #itemInformationArea {
+    width: 35%;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemTitle {
+    font-size: 1.5em;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemPriceArea,
+#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea {
+    margin-top: 20px;
+}
+
+#mainItemPage #itemMain #itemInformationArea .itemPrice {
+    font-size: 1.5em;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea .itemPrice {
+    color: red;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea #itemProperPrice {
+    text-decoration: line-through;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea #itemDiscountRate {
+    color: red;
+    border: 1px solid red;
+    margin-left: 10px;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemPurchase {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemPurchase select {
+    color: var(--text-color);
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    width: 83%;
+    margin-left: 20px;
+}
+
+#mainItemPage #itemMain #itemInformationArea #itemPurchase button {
+    color: var(--text-color);
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+}
+
+#mainItemPage #itemMain #itemInformationArea .attention {
+    font-size: 0.8em;
+    color: var(--additional-text-color);
+    margin-top: 20px;
+}
+
+#mainItemPage #itemMain #itemInformationArea .attention a {
+    color: var(--additional-text-color);
+}
+
+/* 商品ページの下部 */
+#mainItemPage #itemDescriptionArea {
+    margin-top: 20px;
+}
+
+#mainItemPage #itemIllegalReportArea {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#mainItemPage #itemIllegalReportArea a {
+    color: var(--additional-text-color);
+}
+
+/* Aboutページ */
+#aboutLogo {
+    text-align: center;
+    height: 300px;
+}
+
+#aboutLogo img {
+    height: 100%;
+}
+
+#aboutIntro {
+    text-align: center;
+}
+
+@media (max-width:1160px) {
+    header {
+        position: static;
+    }
+
+    header #mainMenu #shopLogo {
+        display: none;
+    }
+
+    header #mainMenu #navigator {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    footer #siteMap,
+    footer #copyright {
+        width: 100%;
+    }
+
+    footer #siteMap #shopLogo {
+        display: none;
+    }
+
+    footer #siteMap #footerCategory .appsItemCategoryTag_lowerchild {
+        display: none;
+    }
+
+    #mainIndexPage #searchArea {
+        justify-content: center;
+    }
+
+    #mainIndexPage #itemListArea #itemArea {
+        width: calc((100% - 20px) / 2);
+        margin-bottom: 20px;
+    }
+
+    #mainIndexPage #itemListArea #itemArea #itemImageArea {
+        width: 100%;
+        height: auto;
+    }
+
+    #mainIndexPage #itemListArea #itemArea #itemNameArea {
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+    }
+}
