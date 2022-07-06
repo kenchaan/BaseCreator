@@ -1,32 +1,3 @@
-:root {
-    /* 全般 */
-    --page-width: 960px;
-    --background-color: rgb(32, 32, 24);
-    --text-color: white;
-    --additional-text-color: gray;
-    --control-background-color: black;
-
-    /* ヘッダ */
-    --header-height: 50px;
-    --header-background-color: black;
-    --header-text-color: white;
-
-    /* フッタ */
-    --footer-background-color: black;
-    --footer-text-color: white;
-
-    /* トップページ/カテゴリページ/検索結果ページ */
-    --searchbox-icon: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62be6e5ccdc9b/search_white.png');
-    /* --searchbox-icon: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62bc48fb62d97/search_black.png'); */
-    /* --searchbox-icon: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62bc49299fcdb/search_gray.png'); */
-
-    --slide-arrow-left: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62c277263e8e7/arrow_left.png');
-    --slide-arrow-right: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62c276f50288b/arrow_right.png');
-
-    --item-column-num: 3;
-    --item-space: 30px;
-}
-
 /* 全般 */
 div {
     border: 0px solid yellow;
@@ -43,6 +14,12 @@ body {
     padding: 0;
 }
 
+a,
+a:hover {
+    color: var(--header-text-color);
+    text-decoration: none;
+}
+
 /* ヘッダ全般 */
 header {
     background-color: var(--header-background-color);
@@ -52,13 +29,6 @@ header {
     z-index: 9999;
 }
 
-header a,
-header a:hover {
-    color: var(--header-text-color);
-    text-decoration: none;
-}
-
-/* ヘッダのナビゲーションメニュー */
 header #mainMenu {
     height: var(--header-height);
     width: 100%;
@@ -66,6 +36,12 @@ header #mainMenu {
     justify-content: space-between;
 }
 
+/* ヘッダのハンバーガーメニュー */
+header #mainMenu #hamburgerMenu {
+    display: none;
+}
+
+/* ヘッダのロゴ */
 header #mainMenu #shopLogo {
     width: calc((100% - var(--page-width)) / 2);
 }
@@ -74,6 +50,7 @@ header #mainMenu #shopLogo .logoImage {
     height: 100%;
 }
 
+/* ヘッダのナビゲーションメニュー */
 header #mainMenu #navigator nav {
     width: var(--page-width);
     font-family: "Nico Moji";
@@ -92,8 +69,8 @@ header #mainMenu #navigator li {
     width: calc(100% / 4);
     margin-left: 0;
     margin-right: 0;
-    border-left: 1px dotted var(--text-color);
-    border-right: 1px dotted var(--text-color);
+    border-left: 1px dotted var(--header-text-color);
+    border-right: 1px dotted var(--header-text-color);
 }
 
 header #mainMenu #navigator li+li {
@@ -120,8 +97,8 @@ header #mainMenu #baseMenu img {
 
 /* メイン全般 */
 main {
-    width: var(--page-width);
-    margin: auto;
+    width: 100%;
+    background-color: var(--background-color);
     padding-top: calc(var(--header-height) + 10px);
 }
 
@@ -168,6 +145,8 @@ footer #copyright {
 
 /* トップページ/カテゴリページ/検索結果ページ */
 #mainIndexPage {
+    width: var(--page-width);
+    margin: auto;
     text-align: center;
 }
 
@@ -348,6 +327,12 @@ footer #copyright {
     color: red;
 }
 
+/* 商品ページ */
+#mainItemPage {
+    width: var(--page-width);
+    margin: auto;
+}
+
 /* 商品ページの上部 */
 #mainItemPage #itemMain {
     margin-top: 20px;
@@ -509,55 +494,105 @@ footer #copyright {
     color: var(--additional-text-color);
 }
 
+/* その他のページ */
+#mainOtherPage {
+    width: var(--page-width);
+    margin: auto;
+}
+
 /* Aboutページ */
-#aboutLogo {
+#mainOtherPage #aboutLogo {
     text-align: center;
     height: 300px;
 }
 
-#aboutLogo img {
+#mainOtherPage #aboutLogo img {
     height: 100%;
 }
 
-#aboutIntro {
+#mainOtherPage #aboutIntro {
     text-align: center;
 }
 
+/* 問い合わせページ */
+#mainOtherPage .main .inquirySection input {
+    color: var(--text-color);
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    width: 300px;
+}
+
+#mainOtherPage .main .inquirySection textarea {
+    color: var(--text-color);
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    width: 100%;
+    height: 400px;
+}
+
+#mainOtherPage .main .inquirySection #buttonLeave {
+    color: var(--text-color);
+    background-color: var(--control-background-color);
+    border: 1px solid var(--text-color);
+    width: 300px;
+    margin-bottom: 20px;
+}
+
 @media (max-width:1160px) {
+    /* ヘッダ全般 */
     header {
         position: static;
     }
 
-    header #mainMenu #shopLogo {
-        display: none;
+    /* ヘッダのハンバーガーメニュー */
+    header #mainMenu #hamburgerMenu {
+        display: inline;
+        width: calc((100% - var(--header-height)) / 2);
     }
 
+    /* ヘッダのロゴ */
+    header #mainMenu #shopLogo {
+        width: var(--header-height);
+    }
+
+    /* ヘッダのナビゲーションメニュー */
     header #mainMenu #navigator {
         display: none;
     }
 
+    /* ヘッダのBASEメニュー */
+    header #mainMenu #baseMenu {
+        width: calc((100% - var(--header-height)) / 2);
+    }
+
+    /* メイン全般 */
     main {
         width: 100%;
         padding-top: 0;
     }
 
+    /* フッタ全般 */
     footer #siteMap,
     footer #copyright {
         width: 100%;
     }
 
+    /* フッタのロゴ */
     footer #siteMap #shopLogo {
         display: none;
     }
 
+    /* フッタのカテゴリ */
     footer #siteMap #footerCategory .appsItemCategoryTag_lowerchild {
         display: none;
     }
 
+    /* トップページ/カテゴリページ/検索結果ページの検索ボタン */
     #mainIndexPage #searchArea {
         justify-content: center;
     }
 
+    /* トップページ/カテゴリページ/検索結果ページの商品一覧 */
     #mainIndexPage #itemListArea #itemArea {
         width: calc((100% - 20px) / 2);
         margin-bottom: 20px;
@@ -572,5 +607,23 @@ footer #copyright {
         width: 100%;
         height: 50px;
         overflow: hidden;
+    }
+
+    /* 問い合わせページ */
+    #mainOtherPage .main .inquirySection dd {
+        margin-inline-start: 0;
+    }
+
+    #mainOtherPage .main .inquirySection input {
+        width: 100%;
+    }
+
+    #mainOtherPage .main .inquirySection textarea {
+        width: 100%;
+        height: 200px;
+    }
+
+    #mainOtherPage .main .inquirySection #buttonLeave {
+        width: 100%;
     }
 }
