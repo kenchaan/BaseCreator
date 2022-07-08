@@ -1,8 +1,4 @@
 /* 全般 */
-div {
-    border: 0px solid yellow;
-}
-
 .hrHeader {
     margin: 0;
 }
@@ -29,7 +25,7 @@ header {
     z-index: 9999;
 }
 
-header #mainMenu {
+#headerMainMenuArea {
     height: var(--header-height);
     width: 100%;
     display: flex;
@@ -37,35 +33,36 @@ header #mainMenu {
 }
 
 /* ヘッダのハンバーガーメニュー */
-header #mainMenu #hamburgerMenu {
+#headerHamburgerMenuArea {
     display: none;
 }
 
 /* ヘッダのロゴ */
-header #mainMenu #shopLogo {
+#headerShopLogoArea {
     width: calc((100% - var(--page-width)) / 2);
 }
 
-header #mainMenu #shopLogo .logoImage {
+#headerShopLogoArea .logoImage {
     height: 100%;
 }
 
 /* ヘッダのナビゲーションメニュー */
-header #mainMenu #navigator nav {
+#headerNavigatorArea nav {
     width: var(--page-width);
     font-family: "Nico Moji";
     margin: auto;
 }
 
-header #mainMenu #navigator ul {
+#headerNavigatorArea #navigatorList {
     list-style: none;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
+    margin: 12px, 0, auto;
     padding: 0;
 }
 
-header #mainMenu #navigator li {
+#headerNavigatorArea #navigatorList .navigatorItem {
     width: calc(100% / 4);
     margin-left: 0;
     margin-right: 0;
@@ -73,16 +70,49 @@ header #mainMenu #navigator li {
     border-right: 1px dotted var(--header-text-color);
 }
 
-header #mainMenu #navigator li+li {
+#headerNavigatorArea #navigatorList .navigatorItem+.navigatorItem {
     border-left: 0;
 }
 
+#headerNavigatorArea #navigatorList {
+    height: 26px;
+}
+
+#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList,
+#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList {
+    visibility: hidden;
+    background-color: var(--header-background-color);
+    border: 1px solid var(--header-text-color);
+    position: absolute;
+    width: calc(var(--page-width) / 4 - 1px);
+}
+
+#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList .navCategoryItem,
+#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList .navMediumCategoryItem {
+    height: 40px;
+    padding-top: 6px;
+}
+
+#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList .navCategoryItem+.navCategoryItem,
+#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList .navMediumCategoryItem+.navMediumCategoryItem {
+    border-top: 1px dotted var(--header-text-color);
+}
+
+#headerNavigatorArea #navigatorList #navCategoryArea:hover #navCategoryList {
+    visibility: visible;
+}
+
+#headerNavigatorArea #navigatorList #navCategoryArea:hover #navCategoryList .navCategoryItem:hover #navMediumCategoryList {
+    visibility: visible;
+    left: calc(var(--page-width) / 4 - 50px);
+}
+
 /* ヘッダのBASEメニュー */
-header #mainMenu #baseMenu {
+#baseMenu {
     width: calc((100% - var(--page-width)) / 2);
 }
 
-header #mainMenu #baseMenu ul {
+#baseMenu ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
@@ -91,7 +121,7 @@ header #mainMenu #baseMenu ul {
     padding: 0;
 }
 
-header #mainMenu #baseMenu img {
+#baseMenu img {
     height: calc(var(--header-height) - 10px);
 }
 
@@ -120,7 +150,7 @@ footer a:hover {
     text-decoration: none;
 }
 
-footer #siteMap {
+#footerSiteMapArea {
     width: var(--page-width);
     margin: auto;
     display: flex;
@@ -128,35 +158,35 @@ footer #siteMap {
 }
 
 /* フッタのロゴ */
-footer #siteMap #shopLogo {
+#footerSiteMapArea #footerShopLogoArea {
     width: 20%;
 }
 
-footer #siteMap .logoImage {
+#footerSiteMapArea .logoImage {
     width: 100%;
 }
 
 /* フッタの著作権表示 */
-footer #copyright {
+#footerCopyrightArea {
     width: var(--page-width);
     margin: auto;
     text-align: right;
 }
 
 /* トップページ/カテゴリページ/検索結果ページ */
-#mainIndexPage {
+#mainIndexPageArea {
     width: var(--page-width);
     margin: auto;
     text-align: center;
 }
 
 /* トップページ/カテゴリページ/検索結果ページの検索ボタン */
-#mainIndexPage #searchArea {
+#mainIndexPageArea #searchArea {
     display: flex;
     justify-content: flex-end;
 }
 
-#mainIndexPage #searchArea #searchText {
+#mainIndexPageArea #searchArea #searchText {
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
     border-radius: 0.3em;
@@ -165,7 +195,7 @@ footer #copyright {
     width: 170px;
 }
 
-#mainIndexPage #searchArea #searchButton {
+#mainIndexPageArea #searchArea #searchButton {
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
     border-radius: 0.3em;
@@ -175,7 +205,7 @@ footer #copyright {
     vertical-align: middle;
 }
 
-#mainIndexPage #searchArea #searchButton #searchButtonIcon {
+#mainIndexPageArea #searchArea #searchButton #searchButtonIcon {
     background: var(--searchbox-icon) no-repeat;
     background-size: 12px 12px;
     display: inline-block;
@@ -184,30 +214,30 @@ footer #copyright {
 }
 
 /* トップページのスライド */
-#mainIndexPage #autoSliderArea {
+#mainIndexPageArea .autoSliderArea {
     background-color: transparent;
 }
 
-#mainIndexPage #autoSliderArea img {
+#mainIndexPageArea .autoSliderArea img {
     height: 100%;
     object-fit: contain;
 }
 
-#mainIndexPage .bx-wrapper {
+#mainIndexPageArea .bx-wrapper {
     position: relative;
 }
 
-#mainIndexPage .bx-wrapper .bx-prev {
+#mainIndexPageArea .bx-wrapper .bx-prev {
     left: 10px;
     background: var(--slide-arrow-left) no-repeat;
 }
 
-#mainIndexPage .bx-wrapper .bx-next {
+#mainIndexPageArea .bx-wrapper .bx-next {
     right: 10px;
     background: var(--slide-arrow-right) no-repeat;
 }
 
-#mainIndexPage .bx-wrapper .bx-controls-direction a {
+#mainIndexPageArea .bx-wrapper .bx-controls-direction a {
     outline: 0;
     width: 50px;
     height: 50px;
@@ -216,7 +246,7 @@ footer #copyright {
     transform: translateY(-50%);
 }
 
-#mainIndexPage .bx-wrapper .bx-pager {
+#mainIndexPageArea .bx-wrapper .bx-pager {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -227,7 +257,7 @@ footer #copyright {
     transform: translateX(-50%);
 }
 
-#mainIndexPage .bx-wrapper .bx-pager.bx-default-pager a {
+#mainIndexPageArea .bx-wrapper .bx-pager.bx-default-pager a {
     background: black;
     border-radius: 0.3em;
     display: block;
@@ -237,74 +267,74 @@ footer #copyright {
     height: 15px;
 }
 
-#mainIndexPage .bx-wrapper .bx-pager-item a.hover,
-#mainIndexPage .bx-wrapper .bx-pager-item a.active {
+#mainIndexPageArea .bx-wrapper .bx-pager-item a.hover,
+#mainIndexPageArea .bx-wrapper .bx-pager-item a.active {
     background: rgb(128, 128, 128);
 }
 
 /* トップページのショップメッセージ */
-#mainIndexPage #shopMessageArea {
+#mainIndexPageArea #shopMessageArea {
     margin-top: 20px;
 }
 
 /* カテゴリページのパンくず */
-#mainIndexPage #breadcrumbArea {
+#mainIndexPageArea #breadcrumbArea {
     margin: 0;
 }
 
-#mainIndexPage #breadcrumbArea ul {
+#mainIndexPageArea #breadcrumbArea ul {
     display: flex;
     list-style: none;
     margin: 0;
 }
 
-#mainIndexPage #breadcrumbArea li:after {
+#mainIndexPageArea #breadcrumbArea li:after {
     content: ">";
     margin-left: 10px;
     margin-right: 10px;
 }
 
-#mainIndexPage #breadcrumbArea li:last-child:after {
+#mainIndexPageArea #breadcrumbArea li:last-child:after {
     content: "";
 }
 
 /* カテゴリページの子カテゴリ */
-#mainIndexPage #categoryChildArea ul {
+#mainIndexPageArea #childCategoryArea ul {
     display: inline;
     list-style: none;
 }
 
 /* トップページ/カテゴリページ/検索結果ページの商品一覧 */
-#mainIndexPage .indexPageSectionTitleArea {
+#mainIndexPageArea .sectionTitleArea {
     margin-top: 20px;
     font-family: "Nico Moji";
     font-size: 2em;
 }
 
-#mainIndexPage #itemListArea {
+#mainIndexPageArea #itemListArea {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#mainIndexPage #itemListArea #itemArea {
+#mainIndexPageArea #itemListArea #itemArea {
     width: calc((var(--page-width) - (var(--item-space) * (var(--item-column-num) - 1))) / var(--item-column-num));
     margin-bottom: var(--item-space);
 }
 
-#mainIndexPage #itemListArea #itemArea #itemImageArea {
+#mainIndexPageArea #itemListArea #itemArea #itemImageArea {
     width: calc((var(--page-width) - (var(--item-space) * (var(--item-column-num) - 1))) / var(--item-column-num));
     height: calc((var(--page-width) - (var(--item-space) * (var(--item-column-num) - 1))) / var(--item-column-num));
 }
 
-#mainIndexPage #itemListArea #itemArea #itemImageArea img {
+#mainIndexPageArea #itemListArea #itemArea #itemImageArea img {
     width: 100%;
     height: auto;
     vertical-align: middle;
 }
 
-#mainIndexPage #itemListArea #itemArea #itemNameArea {
+#mainIndexPageArea #itemListArea #itemArea #itemNameArea {
     width: 100%;
     height: 25px;
     overflow: hidden;
@@ -312,63 +342,63 @@ footer #copyright {
     text-overflow: ellipsis;
 }
 
-#mainIndexPage #itemListArea #itemArea .itemPriceAraa {
+#mainIndexPageArea #itemListArea #itemArea .itemPriceAraa {
     width: 100%;
     color: red;
 }
 
-#mainIndexPage #itemListArea #itemArea #itemDiscountRate {
+#mainIndexPageArea #itemListArea #itemArea #itemDiscountRate {
     color: red;
     border: 1px solid red;
     margin-right: 10px;
 }
 
-#mainIndexPage #itemListArea #itemArea #itemPriceAttention {
+#mainIndexPageArea #itemListArea #itemArea #itemPriceAttention {
     color: red;
 }
 
 /* 商品ページ */
-#mainItemPage {
+#mainItemPageArea {
     width: var(--page-width);
     margin: auto;
 }
 
 /* 商品ページの上部 */
-#mainItemPage #itemMain {
+#mainItemPageArea #itemMainArea {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
 /* 商品ページの画像 */
-#mainItemPage #itemMain #itemImageArea {
+#mainItemPageArea #itemMainArea #itemImageArea {
     width: 60%;
 }
 
-#mainItemPage #itemMain #itemImageArea #unmovedSlider {
+#mainItemPageArea #itemMainArea #itemImageArea #itemSlider {
     background-color: transparent;
 }
 
-#mainItemPage #itemMain #itemImageArea #unmovedSlider img {
+#mainItemPageArea #itemMainArea #itemImageArea #itemSlider img {
     height: 100%;
     object-fit: contain;
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper {
     position: relative;
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-prev {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-prev {
     left: 10px;
     background: var(--slide-arrow-left) no-repeat;
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-next {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-next {
     right: 10px;
     background: var(--slide-arrow-right) no-repeat;
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-controls-direction a {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-controls-direction a {
     outline: 0;
     width: 50px;
     height: 50px;
@@ -377,7 +407,7 @@ footer #copyright {
     transform: translateY(-50%);
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -388,7 +418,7 @@ footer #copyright {
     transform: translateX(-50%);
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager.bx-default-pager a {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager.bx-default-pager a {
     background: black;
     border-radius: 0.3em;
     display: block;
@@ -398,61 +428,61 @@ footer #copyright {
     height: 15px;
 }
 
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager-item a.hover,
-#mainItemPage #itemMain #itemImageArea .bx-wrapper .bx-pager-item a.active {
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager-item a.hover,
+#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager-item a.active {
     background: rgb(128, 128, 128);
 }
 
-#mainItemPage #itemMain #itemImageArea #unmovedSliderThumbnail {
+#mainItemPageArea #itemMainArea #itemImageArea #itemSliderThumbnail {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
 }
 
-#mainItemPage #itemMain #itemImageArea #unmovedSliderThumbnail img {
+#mainItemPageArea #itemMainArea #itemImageArea #itemSliderThumbnail img {
     width: calc(var(--page-width) / 10);
     height: auto;
 }
 
 /* 商品ページの基本情報 */
-#mainItemPage #itemMain #itemInformationArea {
+#mainItemPageArea #itemMainArea #itemInformationArea {
     width: 35%;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemTitle {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemTitle {
     font-size: 1.5em;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemPriceArea,
-#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemPriceArea,
+#mainItemPageArea #itemMainArea #itemInformationArea #itemProperPriceArea {
     margin-top: 20px;
 }
 
-#mainItemPage #itemMain #itemInformationArea .itemPrice {
+#mainItemPageArea #itemMainArea #itemInformationArea .itemPrice {
     font-size: 1.5em;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea .itemPrice {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemProperPriceArea .itemPrice {
     color: red;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea #itemProperPrice {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemProperPriceArea #itemProperPrice {
     text-decoration: line-through;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemProperPriceArea #itemDiscountRate {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemProperPriceArea #itemDiscountRate {
     color: red;
     border: 1px solid red;
     margin-left: 10px;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemPurchase {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemPurchaseArea {
     margin-top: 20px;
     width: 100%;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemPurchase select {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemPurchaseArea select {
     color: var(--text-color);
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
@@ -460,7 +490,7 @@ footer #copyright {
     margin-left: 20px;
 }
 
-#mainItemPage #itemMain #itemInformationArea #itemPurchase button {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemPurchaseArea button {
     color: var(--text-color);
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
@@ -469,60 +499,60 @@ footer #copyright {
     margin-top: 20px;
 }
 
-#mainItemPage #itemMain #itemInformationArea .attention {
+#mainItemPageArea #itemMainArea #itemInformationArea .attention {
     font-size: 0.8em;
     color: var(--additional-text-color);
     margin-top: 20px;
 }
 
-#mainItemPage #itemMain #itemInformationArea .attention a {
+#mainItemPageArea #itemMainArea #itemInformationArea .attention a {
     color: var(--additional-text-color);
 }
 
 /* 商品ページの下部 */
-#mainItemPage #itemDescriptionArea {
+#mainItemPageArea #itemDescriptionArea {
     margin-top: 20px;
 }
 
-#mainItemPage #itemIllegalReportArea {
+#mainItemPageArea #itemIllegalReportArea {
     text-align: right;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#mainItemPage #itemIllegalReportArea a {
+#mainItemPageArea #itemIllegalReportArea a {
     color: var(--additional-text-color);
 }
 
 /* その他のページ */
-#mainOtherPage {
+#mainOtherPageArea {
     width: var(--page-width);
     margin: auto;
 }
 
 /* Aboutページ */
-#mainOtherPage #aboutLogo {
+#mainOtherPageArea #aboutShotLogoArea {
     text-align: center;
     height: 300px;
 }
 
-#mainOtherPage #aboutLogo img {
+#mainOtherPageArea #aboutShotLogoArea img {
     height: 100%;
 }
 
-#mainOtherPage #aboutIntro {
+#mainOtherPageArea #aboutIntro {
     text-align: center;
 }
 
 /* 問い合わせページ */
-#mainOtherPage .main .inquirySection input {
+#mainOtherPageArea .main .inquirySection input {
     color: var(--text-color);
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
     width: 300px;
 }
 
-#mainOtherPage .main .inquirySection textarea {
+#mainOtherPageArea .main .inquirySection textarea {
     color: var(--text-color);
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
@@ -530,7 +560,7 @@ footer #copyright {
     height: 400px;
 }
 
-#mainOtherPage .main .inquirySection #buttonLeave {
+#mainOtherPageArea .main .inquirySection #buttonLeave {
     color: var(--text-color);
     background-color: var(--control-background-color);
     border: 1px solid var(--text-color);
@@ -545,23 +575,23 @@ footer #copyright {
     }
 
     /* ヘッダのハンバーガーメニュー */
-    header #mainMenu #hamburgerMenu {
+    #headerHamburgerMenuArea {
         display: inline;
         width: calc((100% - var(--header-height)) / 2);
     }
 
     /* ヘッダのロゴ */
-    header #mainMenu #shopLogo {
+    #headerShopLogoArea {
         width: var(--header-height);
     }
 
     /* ヘッダのナビゲーションメニュー */
-    header #mainMenu #navigator {
+    #headerNavigatorArea {
         display: none;
     }
 
     /* ヘッダのBASEメニュー */
-    header #mainMenu #baseMenu {
+    #baseMenu {
         width: calc((100% - var(--header-height)) / 2);
     }
 
@@ -572,58 +602,73 @@ footer #copyright {
     }
 
     /* フッタ全般 */
-    footer #siteMap,
-    footer #copyright {
+    #footerSiteMapArea,
+    #footerCopyrightArea {
         width: 100%;
     }
 
     /* フッタのロゴ */
-    footer #siteMap #shopLogo {
+    #footerSiteMapArea #footerShopLogoArea {
         display: none;
     }
 
     /* フッタのカテゴリ */
-    footer #siteMap #footerCategory .appsItemCategoryTag_lowerchild {
+    #footerSiteMapArea #footerCategory .appsItemCategoryTag_lowerchild {
         display: none;
     }
 
+    /* トップページ/カテゴリページ/検索結果ページ */
+    #mainIndexPageArea {
+        width: 100%;
+    }
+
     /* トップページ/カテゴリページ/検索結果ページの検索ボタン */
-    #mainIndexPage #searchArea {
+    #mainIndexPageArea #searchArea {
         justify-content: center;
     }
 
     /* トップページ/カテゴリページ/検索結果ページの商品一覧 */
-    #mainIndexPage #itemListArea #itemArea {
+    #mainIndexPageArea #itemListArea #itemArea {
         width: calc((100% - 20px) / 2);
         margin-bottom: 20px;
     }
 
-    #mainIndexPage #itemListArea #itemArea #itemImageArea {
+    #mainIndexPageArea #itemListArea #itemArea #itemImageArea {
         width: 100%;
         height: auto;
     }
 
-    #mainIndexPage #itemListArea #itemArea #itemNameArea {
+    #mainIndexPageArea #itemListArea #itemArea #itemNameArea {
         width: 100%;
         height: 50px;
         overflow: hidden;
     }
 
-    /* 問い合わせページ */
-    #mainOtherPage .main .inquirySection dd {
-        margin-inline-start: 0;
-    }
-
-    #mainOtherPage .main .inquirySection input {
+    /* 商品ページ */
+    #mainItemPageArea {
         width: 100%;
     }
 
-    #mainOtherPage .main .inquirySection textarea {
+    /* その他のページ */
+    #mainOtherPageArea {
+        width: 100%;
+    }
+
+    /* 問い合わせページ */
+    #mainOtherPageArea .main .inquirySection dd {
+        margin-inline-start: 0;
+    }
+
+    #mainOtherPageArea .main .inquirySection input {
+        width: 100%;
+    }
+
+    #mainOtherPageArea .main .inquirySection textarea {
         width: 100%;
         height: 200px;
     }
 
-    #mainOtherPage .main .inquirySection #buttonLeave {
+    #mainOtherPageArea .main .inquirySection #buttonLeave {
         width: 100%;
     }
 }
