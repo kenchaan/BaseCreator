@@ -37,6 +37,61 @@ header {
     display: none;
 }
 
+#headerHamburgerMenuArea #hamburgerMenuArea {
+    visibility: hidden;
+    background-color: var(--header-background-color);
+    opacity: 0.85;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    top: var(--header-height);
+    margin: 0;
+    padding: 0;
+}
+
+#headerHamburgerMenuArea #hamburgerList {
+    list-style: none;
+    border: 1px solid var(--header-text-color);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#headerHamburgerMenuArea #hamburgerList>li {
+    border-top: none;
+    padding: 10px 0 10px 20px;
+}
+
+#headerHamburgerMenuArea #hamburgerList>li+li {
+    border-top: 1px dotted var(--header-text-color);
+}
+
+#headerHamburgerMenuArea #hamburgerList #hamCategoryArea #hamCategoryList,
+#headerHamburgerMenuArea #hamburgerList #hamCategoryArea #hamMediumCategoryList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#headerHamburgerMenuArea #hamburgerList #hamCategoryArea li {
+    padding-left: 40px;
+}
+
+#headerHamburgerMenuArea #hamburgerList #hamAboutSnsList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#headerHamburgerMenuArea #hamburgerList #hamAboutSnsList li {
+    padding-left: 40px;
+}
+
+#headerHamburgerMenuArea #hamburgerList #hamAboutSnsList li img {
+    width: 18px;
+    height: 18px;
+}
+
 /* ヘッダのロゴ */
 #headerShopLogoArea {
     width: calc((100% - var(--page-width)) / 2);
@@ -58,11 +113,12 @@ header {
     display: flex;
     align-items: flex-start;
     text-align: center;
-    margin: 12px, 0, auto;
-    padding: 0;
+    height: var(--header-height);
+    margin: 0;
+    padding: 12px 0 0;
 }
 
-#headerNavigatorArea #navigatorList .navigatorItem {
+#headerNavigatorArea #navigatorList>li {
     width: calc(100% / 4);
     margin-left: 0;
     margin-right: 0;
@@ -70,16 +126,13 @@ header {
     border-right: 1px dotted var(--header-text-color);
 }
 
-#headerNavigatorArea #navigatorList .navigatorItem+.navigatorItem {
+#headerNavigatorArea #navigatorList>li+li {
     border-left: 0;
 }
 
-#headerNavigatorArea #navigatorList {
-    height: 26px;
-}
-
 #headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList,
-#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList {
+#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList,
+#headerNavigatorArea #navigatorList #navAboutArea #navAboutSnsList {
     visibility: hidden;
     background-color: var(--header-background-color);
     border: 1px solid var(--header-text-color);
@@ -87,24 +140,30 @@ header {
     width: calc(var(--page-width) / 4 - 1px);
 }
 
-#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList .navCategoryItem,
-#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList .navMediumCategoryItem {
+#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList li,
+#headerNavigatorArea #navigatorList #navAboutArea #navAboutSnsList li {
     height: 40px;
     padding-top: 6px;
 }
 
-#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList .navCategoryItem+.navCategoryItem,
-#headerNavigatorArea #navigatorList #navCategoryArea #navMediumCategoryList .navMediumCategoryItem+.navMediumCategoryItem {
+#headerNavigatorArea #navigatorList #navCategoryArea #navCategoryList li+li,
+#headerNavigatorArea #navigatorList #navAboutArea #navAboutSnsList li+li {
     border-top: 1px dotted var(--header-text-color);
 }
 
-#headerNavigatorArea #navigatorList #navCategoryArea:hover #navCategoryList {
+#headerNavigatorArea #navigatorList #navCategoryArea:hover #navCategoryList,
+#headerNavigatorArea #navigatorList #navAboutArea:hover #navAboutSnsList {
     visibility: visible;
 }
 
-#headerNavigatorArea #navigatorList #navCategoryArea:hover #navCategoryList .navCategoryItem:hover #navMediumCategoryList {
+#headerNavigatorArea #navigatorList #navCategoryArea:hover #navCategoryList>li:hover #navMediumCategoryList {
     visibility: visible;
     left: calc(var(--page-width) / 4 - 50px);
+}
+
+#headerNavigatorArea #navigatorList #navAboutSnsList li img {
+    width: 18px;
+    height: 18px;
 }
 
 /* ヘッダのBASEメニュー */
