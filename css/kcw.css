@@ -6,8 +6,13 @@
 body {
     color: var(--text-color);
     font-family: "M PLUS Rounded 1c";
+    width: 100%;
     margin: 0;
     padding: 0;
+}
+
+body.menuOpened {
+    position: fixed;
 }
 
 a,
@@ -39,14 +44,73 @@ header {
 
 #headerHamburgerMenuArea #hamburgerMenuArea {
     visibility: hidden;
+    opacity: 0;
     background-color: var(--header-background-color);
-    opacity: 0.85;
     position: absolute;
     width: 100%;
     height: calc(100% - var(--header-height));
     top: var(--header-height);
     margin: 0;
     padding: 0;
+    transition: all .5s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuArea.opened {
+    visibility: visible;
+    opacity: 0.85;
+    transition: all .5s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton {
+    position: relative;
+    background: transparent;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    margin: calc((var(--header-height) - 40px) / 2) 10px 0;
+    padding: 0;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton #hamLineTop,
+#headerHamburgerMenuArea #hamburgerMenuButton #hamLineMiddle,
+#headerHamburgerMenuArea #hamburgerMenuButton #hamLineBottom {
+    width: 30px;
+    height: 1px;
+    position: absolute;
+    background-color: var(--header-text-color);
+    left: 5px;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton #hamLineTop {
+    top: 10px;
+    transition: transform .3s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton #hamLineMiddle {
+    top: 20px;
+    transition: opacity .3s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton #hamLineBottom {
+    top: 30px;
+    transition: transform .3s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton.opened #hamLineTop {
+    transform: translate(0, 10px) rotate(45deg);
+    transition: transform .3s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton.opened #hamLineMiddle {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuButton.opened #hamLineBottom {
+    transform: translate(0px, -10px) rotate(-45deg);
+    transition: transform .3s;
 }
 
 #headerHamburgerMenuArea #hamburgerList {
@@ -223,6 +287,25 @@ footer a:hover {
 
 #footerSiteMapArea .logoImage {
     width: 100%;
+}
+
+/* フッタのカテゴリ/メニュー */
+#footerSiteMapArea #footerCategoryArea,
+#footerSiteMapArea #footerNavigatorArea {
+    padding: 20px 0 0 0;
+}
+
+#footerSiteMapArea #footerCategoryArea #footerCategoryList,
+#footerSiteMapArea #footerNavigatorArea #footerNavigatorList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#footerSiteMapArea #footerCategoryArea #footerMediumCategoryList {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 25px;
 }
 
 /* フッタの著作権表示 */
@@ -668,11 +751,6 @@ footer a:hover {
 
     /* フッタのロゴ */
     #footerSiteMapArea #footerShopLogoArea {
-        display: none;
-    }
-
-    /* フッタのカテゴリ */
-    #footerSiteMapArea #footerCategory .appsItemCategoryTag_lowerchild {
         display: none;
     }
 
