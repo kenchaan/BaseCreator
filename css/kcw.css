@@ -42,25 +42,6 @@ header {
     display: none;
 }
 
-#headerHamburgerMenuArea #hamburgerMenuArea {
-    visibility: hidden;
-    opacity: 0;
-    background-color: var(--header-background-color);
-    position: absolute;
-    width: 100%;
-    height: calc(100% - var(--header-height));
-    top: var(--header-height);
-    margin: 0;
-    padding: 0;
-    transition: all .5s;
-}
-
-#headerHamburgerMenuArea #hamburgerMenuArea.opened {
-    visibility: visible;
-    opacity: 0.85;
-    transition: all .5s;
-}
-
 #headerHamburgerMenuArea #hamburgerMenuButton {
     position: relative;
     background: transparent;
@@ -111,6 +92,26 @@ header {
 #headerHamburgerMenuArea #hamburgerMenuButton.opened #hamLineBottom {
     transform: translate(0px, -10px) rotate(-45deg);
     transition: transform .3s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuArea {
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--header-background-color);
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    top: var(--header-height);
+    margin: 0;
+    padding: 0;
+    transition: all .5s;
+}
+
+#headerHamburgerMenuArea #hamburgerMenuArea.opened {
+    visibility: visible;
+    opacity: 0.85;
+    transition: all .5s;
 }
 
 #headerHamburgerMenuArea #hamburgerList {
@@ -356,30 +357,30 @@ footer a:hover {
 }
 
 /* トップページのスライド */
-#mainIndexPageArea .autoSliderArea {
+#mainIndexPageArea #indexPageSliderArea {
     background-color: transparent;
 }
 
-#mainIndexPageArea .autoSliderArea img {
+#mainIndexPageArea #indexPageSliderArea img {
     height: 100%;
     object-fit: contain;
 }
 
-#mainIndexPageArea .bx-wrapper {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper {
     position: relative;
 }
 
-#mainIndexPageArea .bx-wrapper .bx-prev {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-prev {
     left: 10px;
     background: var(--slide-arrow-left) no-repeat;
 }
 
-#mainIndexPageArea .bx-wrapper .bx-next {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-next {
     right: 10px;
     background: var(--slide-arrow-right) no-repeat;
 }
 
-#mainIndexPageArea .bx-wrapper .bx-controls-direction a {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-controls-direction a {
     outline: 0;
     width: 50px;
     height: 50px;
@@ -388,7 +389,7 @@ footer a:hover {
     transform: translateY(-50%);
 }
 
-#mainIndexPageArea .bx-wrapper .bx-pager {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-pager {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -399,7 +400,7 @@ footer a:hover {
     transform: translateX(-50%);
 }
 
-#mainIndexPageArea .bx-wrapper .bx-pager.bx-default-pager a {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-pager.bx-default-pager a {
     background: black;
     border-radius: 0.3em;
     display: block;
@@ -409,8 +410,8 @@ footer a:hover {
     height: 15px;
 }
 
-#mainIndexPageArea .bx-wrapper .bx-pager-item a.hover,
-#mainIndexPageArea .bx-wrapper .bx-pager-item a.active {
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-pager-item a.hover,
+#mainIndexPageArea #indexPageSliderArea .bx-wrapper .bx-pager-item a.active {
     background: rgb(128, 128, 128);
 }
 
@@ -513,34 +514,34 @@ footer a:hover {
 }
 
 /* 商品ページの画像 */
-#mainItemPageArea #itemMainArea #itemImageArea {
+#mainItemPageArea #itemMainArea #itemPageImageArea {
     width: 60%;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea #itemSlider {
+#mainItemPageArea #itemMainArea #itemPageImageArea #itemSliderArea {
     background-color: transparent;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea #itemSlider img {
+#mainItemPageArea #itemMainArea #itemPageImageArea #itemSliderArea img {
     height: 100%;
     object-fit: contain;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper {
     position: relative;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-prev {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-prev {
     left: 10px;
     background: var(--slide-arrow-left) no-repeat;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-next {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-next {
     right: 10px;
     background: var(--slide-arrow-right) no-repeat;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-controls-direction a {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-controls-direction a {
     outline: 0;
     width: 50px;
     height: 50px;
@@ -549,7 +550,7 @@ footer a:hover {
     transform: translateY(-50%);
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-pager {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -560,7 +561,7 @@ footer a:hover {
     transform: translateX(-50%);
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager.bx-default-pager a {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-pager.bx-default-pager a {
     background: black;
     border-radius: 0.3em;
     display: block;
@@ -570,20 +571,24 @@ footer a:hover {
     height: 15px;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager-item a.hover,
-#mainItemPageArea #itemMainArea #itemImageArea .bx-wrapper .bx-pager-item a.active {
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-pager-item a.hover,
+#mainItemPageArea #itemMainArea #itemPageImageArea .bx-wrapper .bx-pager-item a.active {
     background: rgb(128, 128, 128);
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea #itemSliderThumbnail {
+#mainItemPageArea #itemMainArea #itemPageImageArea #itemSliderThumbnailArea {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
 }
 
-#mainItemPageArea #itemMainArea #itemImageArea #itemSliderThumbnail img {
-    width: calc(var(--page-width) / 10);
+#mainItemPageArea #itemMainArea #itemPageImageArea #itemSliderThumbnailArea .itemSliderThumbnailItemArea {
+    width: 20%;
+}
+
+#mainItemPageArea #itemMainArea #itemPageImageArea #itemSliderThumbnailArea img {
+    width: 100%;
     height: auto;
 }
 
@@ -613,7 +618,7 @@ footer a:hover {
     text-decoration: line-through;
 }
 
-#mainItemPageArea #itemMainArea #itemInformationArea #itemProperPriceArea #itemDiscountRate {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemProperPriceArea #itemPageDiscountRate {
     color: red;
     border: 1px solid red;
     margin-left: 10px;
@@ -641,13 +646,18 @@ footer a:hover {
     margin-top: 20px;
 }
 
-#mainItemPageArea #itemMainArea #itemInformationArea .attention {
-    font-size: 0.8em;
-    color: var(--additional-text-color);
+#mainItemPageArea #itemMainArea #itemInformationArea #itemAttention {
     margin-top: 20px;
 }
 
-#mainItemPageArea #itemMainArea #itemInformationArea .attention a {
+#mainItemPageArea #itemMainArea #itemInformationArea #itemAttention .attention {
+    font-size: 0.8em;
+    color: var(--additional-text-color);
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#mainItemPageArea #itemMainArea #itemInformationArea #itemAttention .attention a {
     color: var(--additional-text-color);
 }
 
@@ -776,13 +786,27 @@ footer a:hover {
     }
 
     #mainIndexPageArea #itemListArea #itemArea #itemNameArea {
-        width: 100%;
         height: 50px;
-        overflow: hidden;
+        white-space: normal;
     }
 
     /* 商品ページ */
     #mainItemPageArea {
+        width: 100%;
+    }
+
+    /* 商品ページの上部 */
+    #mainItemPageArea #itemMainArea {
+        display: block;
+    }
+
+    /* 商品ページの画像 */
+    #mainItemPageArea #itemMainArea #itemPageImageArea{
+        width: 100%;
+    }
+
+    /* 商品ページの基本情報 */
+    #mainItemPageArea #itemMainArea #itemInformationArea {
         width: 100%;
     }
 

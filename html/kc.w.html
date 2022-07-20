@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="copyright" content="ken_chaaay">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="description" content="田舎のお兄さんがゆるゆるとレザークラフトをしています。">
+    <title>kc.w</title>
+
+    {FaviconTag}
+    {BackgroundTag}
+    {GoogleAnalyticsTag}
+
+    {block:Hidden}
+    <meta name="color:backgroundColor" content="" label="背景色">
+    <meta name="color:textColor" content="" label="テキスト文字色">
+    <meta name="color:additionalTextColor" content="" label="補足テキスト文字色">
+    <meta name="color:headerBackgroundColor" content="" label="ヘッダー・フッター背景色">
+    <meta name="color:headerTextColor" content="" label="ヘッダー・フッターテキスト文字色">
+    <meta name="color:controlBackgroundColor" content="" label="テキストボックス背景色">
+
+    <meta name="select:searchButtonColor" content="https://basefile.akamaized.net/kcw-handcrafted-jp/62bc48fb62d97/search_black.png" title="黒" label="検索アイコン色">
+    <meta name="select:searchButtonColor" content="https://basefile.akamaized.net/kcw-handcrafted-jp/62be6e5ccdc9b/search_white.png" title="白" label="検索アイコン色">
+    <meta name="select:searchButtonColor" content="https://basefile.akamaized.net/kcw-handcrafted-jp/62bc49299fcdb/search_gray.png" title="灰" label="検索アイコン色">
+
+    <meta name="text:indexPageText" content="" label="トップページ文">
+
+    <meta name="image:indexPageSlideImage1" content="" label="トップページスライド画像1">
+    <meta name="image:indexPageSlideImage2" content="" label="トップページスライド画像2">
+    <meta name="image:indexPageSlideImage3" content="" label="トップページスライド画像3">
+    <meta name="image:indexPageSlideImage4" content="" label="トップページスライド画像4">
+    <meta name="image:indexPageSlideImage5" content="" label="トップページスライド画像5">
+    {/block:Hidden}
+
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* 全般 */
+            --page-width: 960px;
+            {block:color-backgroundColor}--background-color: {color:backgroundColor};{/block:color-backgroundColor}
+            {block:not_color-backgroundColor}--background-color: white;{/block:not_color-backgroundColor}
+
+            {block:color-textColor}--text-color: {color:textColor};{/block:color-textColor}
+            {block:not_color-textColor}--text-color: black;{/block:not_color-textColor}
+
+            {block:color-additionalTextColor}--additional-text-color: {color:additionalTextColor};{/block:color-additionalTextColor}
+            {block:not_color-additionalTextColor}--additional-text-color: gray;{/block:not_color-additionalTextColor}
+            
+            {block:color-controlBackgroundColor}--control-background-color: {color:controlBackgroundColor};{/block:color-controlBackgroundColor}
+            {block:not_color-controlBackgroundColor}--control-background-color: white;{/block:not_color-controlBackgroundColor}
+
+            /* ヘッダ */
+            --header-height: 50px;
+
+            {block:color-headerBackgroundColor}--header-background-color: {color:headerBackgroundColor};{/block:color-headerBackgroundColor}
+            {block:not_color-headerBackgroundColor}--header-background-color: black;{/block:not_color-headerBackgroundColor}
+
+            {block:color-headerTextColor}--header-text-color: {color:headerTextColor};{/block:color-headerTextColor}
+            {block:not_color-headerTextColor}--header-text-color: white;{/block:not_color-headerTextColor}
+
+            /* フッタ */
+            {block:color-headerBackgroundColor}--footer-background-color: {color:headerBackgroundColor};{/block:color-headerBackgroundColor}
+            {block:not_color-headerBackgroundColor}--footer-background-color: black;{/block:not_color-headerBackgroundColor}
+
+            {block:color-headerTextColor}--footer-text-color: {color:headerTextColor};{/block:color-headerTextColor}
+            {block:not_color-headerTextColor}--footer-text-color: white;{/block:not_color-headerTextColor}
+
+            /* トップページ/カテゴリページ/検索結果ページ */
+            --searchbox-icon: url('{select:searchButtonColor}');
+
+            --slide-arrow-left: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62c277263e8e7/arrow_left.png');
+            --slide-arrow-right: url('https://basefile.akamaized.net/kcw-handcrafted-jp/62c276f50288b/arrow_right.png');
+
+            --item-column-num: 3;
+            --item-space: 30px;
+        }
+
+        div, ul {
+            border: 0px dotted yellow;
+        }
+    </style>
+    <link href="https://basefile.akamaized.net/kcw-handcrafted-jp/62d7956940ac3/kcw.css" rel="stylesheet">
+
+    <style>
+        @media (max-width:1160px) {
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#hamburgerMenuButton').on('click', function () {
+                $('#hamburgerMenuButton').toggleClass('opened');
+                $('#hamburgerMenuArea').toggleClass('opened');
+                $('body').toggleClass('menuOpened');
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.autoSliderArea').bxSlider({
+                auto: true,
+                pause: 5000,
+                nextText: '',
+                prevText: ''
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#itemSliderArea').bxSlider({
+                auto: false,
+                nextText: '',
+                prevText: '',
+                pagerCustom: '#itemSliderThumbnailArea'
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="headerMainMenuArea">
+            <div id="headerHamburgerMenuArea">
+                <button id="hamburgerMenuButton">
+                    <span id="hamLineTop"></span>
+                    <span id="hamLineMiddle"></span>
+                    <span id="hamLineBottom"></span>
+                </button>
+                <div id="hamburgerMenuArea" class="menu">
+                    <ul id="hamburgerList">
+                        <li><a href="{IndexPageURL}">HOME</a></li>
+                        <li>
+                            <div id="hamCategoryArea">PRODUCTS
+                                <ul id="hamCategoryList">
+                                    {block:AppsItemCategoryCategories}
+                                    <li class="hamCategoryItem"><a href="{AppsItemCategoryCategoryPageURL}">{AppsItemCategoryCategoryName}</a>
+                                        {block:HasAppsItemCategoryMediumCategories}
+                                            <ul id="hamMediumCategoryList">
+                                                {block:AppsItemCategoryMediumCategories}
+                                                    <li class="hamMediumCategoryItem"><a href="{AppsItemCategoryMediumCategoryPageURL}">{AppsItemCategoryMediumCategoryName}</a></li>
+                                                {/block:AppsItemCategoryMediumCategories}
+                                            </ul>
+                                        {/block:HasAppsItemCategoryMediumCategories}
+                                    {/block:AppsItemCategoryCategories}
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>ABOUT
+                            <ul id="hamAboutSnsList">
+                                <li><a href="{AboutPageURL}">ショッピングガイド</a></li>
+                                {block:ShopInstagramId}<li><a href="https://www.instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png"> Instagram</a></li>{/block:ShopInstagramId}
+                                {block:ShopTwitterId}<li><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png"> Twitter</a></li>{/block:ShopTwitterId}
+                                {block:ShopLineId}<li><a href="https://line.me/R/ti/p/%40{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png"> LINE</a></li>{/block:ShopLineId}
+                                {block:ShopFacebookId}<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png"> Facebook</a></li>{/block:ShopFacebookId}
+                                {block:ShopYoutubeId}<li><a href="{ShopYoutubeId}" target="_blank"><img src="/img/shop/youtubeicon.png"> YouTube</a></li>{/block:ShopYoutubeId}
+                                {block:ShopTiktokId}<li><a href="https://tiktok.com/@{ShopTiktokId}" target="_blank"><img src="/img/shop/tiktokicon_black.png"> TikTok</a></li>{/block:ShopTiktokId}
+                                {block:ShopNoteId}<li><a href="https://note.com/{ShopNoteId}" target="_blank"><img src="/img/shop/noteicon.png"> note</a></li>{/block:ShopNoteId}
+                                {block:ShopAmebaId}<li><a href="https://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png"> Ameba</a></li>{/block:ShopAmebaId}
+                            </ul>
+                        </li>
+                        <li><a href="{ContactPageURL}">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="headerShopLogoArea">
+                <a href="{IndexPageURL}">{LogoTag}</a>
+            </div>
+
+            <div id="headerNavigatorArea">
+                <nav>
+                    <ul id="navigatorList">
+                        <li><a href="{IndexPageURL}">HOME</a></li>
+                        <li>
+                            <div id="navCategoryArea">PRODUCTS
+                                <ul id="navCategoryList">
+                                {block:AppsItemCategoryCategories}
+                                    <li><a href="{AppsItemCategoryCategoryPageURL}">{AppsItemCategoryCategoryName}</a>
+                                        {block:HasAppsItemCategoryMediumCategories}
+                                            <ul id="navMediumCategoryList">
+                                                {block:AppsItemCategoryMediumCategories}
+                                                    <li><a href="{AppsItemCategoryMediumCategoryPageURL}">{AppsItemCategoryMediumCategoryName}</a></li>
+                                                {/block:AppsItemCategoryMediumCategories}
+                                            </ul>
+                                        {/block:HasAppsItemCategoryMediumCategories}
+                                    </li>
+                                {/block:AppsItemCategoryCategories}
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="navAboutArea">ABOUT
+                                <ul id="navAboutSnsList">
+                                    <li><a href="{AboutPageURL}">ショッピングガイド</a></li>
+                                    {block:ShopInstagramId}<li><a href="https://www.instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png"> Instagram</a></li>{/block:ShopInstagramId}
+                                    {block:ShopTwitterId}<li><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png"> Twitter</a></li>{/block:ShopTwitterId}
+                                    {block:ShopLineId}<li><a href="https://line.me/R/ti/p/%40{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png"> LINE</a></li>{/block:ShopLineId}
+                                    {block:ShopFacebookId}<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png"> Facebook</a></li>{/block:ShopFacebookId}
+                                    {block:ShopYoutubeId}<li><a href="{ShopYoutubeId}" target="_blank"><img src="/img/shop/youtubeicon.png"> YouTube</a></li>{/block:ShopYoutubeId}
+                                    {block:ShopTiktokId}<li><a href="https://tiktok.com/@{ShopTiktokId}" target="_blank"><img src="/img/shop/tiktokicon_black.png"> TikTok</a></li>{/block:ShopTiktokId}
+                                    {block:ShopNoteId}<li><a href="https://note.com/{ShopNoteId}" target="_blank"><img src="/img/shop/noteicon.png"> note</a></li>{/block:ShopNoteId}
+                                    {block:ShopAmebaId}<li><a href="https://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png"> Ameba</a></li>{/block:ShopAmebaId}
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="{ContactPageURL}">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            {BASEMenuTag}
+        </div>
+        <hr class="hrHeader">
+    </header>
+
+    <main>
+        <div id="{block:IndexPage}mainIndexPageArea{/block:IndexPage}{block:ItemPage}mainItemPageArea{/block:ItemPage}{block:NotIndexPage}{block:NotItemPage}mainOtherPageArea{/block:NotItemPage}{/block:NotIndexPage}">
+            {block:ShopPublic}
+            {block:IndexPage}
+                {block:AppsSearch}
+                <!-- トップページ/カテゴリページ/検索結果ページの検索ボックス -->
+                <div id="searchArea">
+                    <form action="{SearchPageURL}" method="get">
+                        <input id="searchText" type="text" name="q" value="{IndexPageSearch}" autocomplete="off">
+                        <button id="searchButton"><span id="searchButtonIcon"></span></button>
+                    </form>
+                </div>
+                {/block:AppsSearch}
+
+                {block:NoIndexPageCategory}{block:NoIndexPageSearch}
+                    <!-- トップページのスライド -->
+                    {block:image-indexPageSlideImage1}
+                    <div id="indexPageSliderArea">
+                        <br>
+                        <div class="autoSliderArea">
+                            <img src="{image:indexPageSlideImage1}" alt="">
+                            {block:image-indexPageSlideImage2}<img src="{image:indexPageSlideImage2}" alt="">{/block:image-indexPageSlideImage2}
+                            {block:image-indexPageSlideImage3}<img src="{image:indexPageSlideImage3}" alt="">{/block:image-indexPageSlideImage3}
+                            {block:image-indexPageSlideImage4}<img src="{image:indexPageSlideImage4}" alt="">{/block:image-indexPageSlideImage4}
+                            {block:image-indexPageSlideImage5}<img src="{image:indexPageSlideImage5}" alt="">{/block:image-indexPageSlideImage5}
+                        </div>
+                    </div>
+                    {/block:image-indexPageSlideImage1}
+
+                    <!-- トップページのショップメッセージ -->
+                    {block:text-indexPageText}
+                    <div id="shopMessageArea">{text:indexPageText}</div>
+                    {/block:text-indexPageText}
+                {/block:NoIndexPageSearch}{/block:NoIndexPageCategory}
+
+                {block:IndexPageCategory}
+                    <!-- カテゴリページのパンくず -->
+                    <div id="breadcrumbArea">{BreadcrumbTag}</div>
+
+                    <!-- カテゴリページのカテゴリ名 -->
+                    <div class="sectionTitleArea">
+                        {IndexPageCategory}
+                        <hr>
+                    </div>
+
+                    <!-- カテゴリページの子カテゴリ -->
+                    {block:HasAppsItemCategoryChildCategories}
+                    <div id="childCategoryArea">
+                        <ul>
+                            {block:AppsItemCategoryChildCategories}
+                            <li><a href="{AppsItemCategoryChildCategoryPageURL}">{AppsItemCategoryChildCategoryName}</a></li>
+                            {/block:AppsItemCategoryChildCategories}
+                        </ul>
+                    </div>
+                    {/block:HasAppsItemCategoryChildCategories}
+                {/block:IndexPageCategory}
+
+                {block:IndexPageSearch}
+                    <!-- 検索結果ページの検索ワード -->
+                    {lang:ItemSearchResult}
+                {/block:IndexPageSearch}
+
+                <!-- トップページ/カテゴリページ/検索結果ページの商品一覧 -->
+                <div>
+                    <div class="sectionTitleArea">- Items -</div>
+                    <hr>
+                </div>
+
+                <!-- トップページ/カテゴリページ/検索結果ページの商品一覧(商品あり) -->
+                <div id="itemListArea">
+                    {block:Items}
+                    <div id="itemArea">
+                        <a href="{ItemPageURL}">
+                            <div id="itemImageArea">
+                                {block:AppsItemLabel}{AppsItemLabelTag}{/block:AppsItemLabel}
+                                {block:ItemImage1}
+                                    <img src="{ItemImage1URL-300}" alt="" title="">
+                                {/block:ItemImage1}
+                                {block:NoItemImage1}
+                                    <img src="{ItemNoImageURL}" alt="" title="">
+                                {/block:NoItemImage1}
+                            </div>
+                        </a>
+
+                        <a href="{ItemPageURL}">
+                            <div id="itemNameArea">{ItemTitle}</div>
+                        </a>
+
+                        {block:HasItemStock}
+                            <!-- 在庫あり -->
+                            {block:NoItemProperPrice}
+                            <!-- 定価 -->
+                            <div>{ItemPrice}</div>
+                            {/block:NoItemProperPrice}
+
+                            {block:HasItemProperPrice}
+                            <!-- 割引 -->
+                            <div>
+                                <small><span id="itemDiscountRate">{ItemDiscountRate}</span></small>
+                                <span id="itemDiscountPrice">{ItemPrice}</span>
+                            </div>
+                            {/block:HasItemProperPrice}
+                        {/block:HasItemStock}
+
+                        {block:NoItemStock}
+                            <!-- 在庫なし -->
+                            <div id="itemPriceAttention">SOLD OUT</div>
+                        {/block:NoItemStock}
+                    </div>
+                    {/block:Items}
+                </div>
+
+                <!-- トップページ/カテゴリページ/検索結果ページの商品一覧(商品なし) -->
+                {block:NoItems}<p>No items</p>{/block:NoItems}
+            {/block:IndexPage}
+
+            {block:ItemPage}
+                <!-- 商品ページの画像 -->
+                <div id="itemMainArea">
+                    <div id="itemPageImageArea">
+                        <div id="itemSliderArea">
+                            {block:NoItemImage1}
+                                <img src="{ItemNoImageURL}" alt="">
+                            {/block:NoItemImage1}
+                            {block:ItemImage1}
+                                <img src="{ItemImage1URL-640}" alt="">
+                                {block:ItemImage2}<img src="{ItemImage2URL-640}" alt="">{/block:ItemImage2}
+                                {block:ItemImage3}<img src="{ItemImage3URL-640}" alt="">{/block:ItemImage3}
+                                {block:ItemImage4}<img src="{ItemImage4URL-640}" alt="">{/block:ItemImage4}
+                                {block:ItemImage5}<img src="{ItemImage5URL-640}" alt="">{/block:ItemImage5}
+                                {block:ItemImage6}<img src="{ItemImage6URL-640}" alt="">{/block:ItemImage6}
+                                {block:ItemImage7}<img src="{ItemImage7URL-640}" alt="">{/block:ItemImage7}
+                                {block:ItemImage8}<img src="{ItemImage8URL-640}" alt="">{/block:ItemImage8}
+                                {block:ItemImage9}<img src="{ItemImage9URL-640}" alt="">{/block:ItemImage9}
+                                {block:ItemImage10}<img src="{ItemImage10URL-640}" alt="">{/block:ItemImage10}
+                                {block:ItemImage11}<img src="{ItemImage11URL-640}" alt="">{/block:ItemImage11}
+                                {block:ItemImage12}<img src="{ItemImage12URL-640}" alt="">{/block:ItemImage12}
+                                {block:ItemImage13}<img src="{ItemImage13URL-640}" alt="">{/block:ItemImage13}
+                                {block:ItemImage14}<img src="{ItemImage14URL-640}" alt="">{/block:ItemImage14}
+                                {block:ItemImage15}<img src="{ItemImage15URL-640}" alt="">{/block:ItemImage15}
+                                {block:ItemImage16}<img src="{ItemImage16URL-640}" alt="">{/block:ItemImage16}
+                                {block:ItemImage17}<img src="{ItemImage17URL-640}" alt="">{/block:ItemImage17}
+                                {block:ItemImage18}<img src="{ItemImage18URL-640}" alt="">{/block:ItemImage18}
+                                {block:ItemImage19}<img src="{ItemImage19URL-640}" alt="">{/block:ItemImage19}
+                                {block:ItemImage20}<img src="{ItemImage20URL-640}" alt="">{/block:ItemImage20}
+                            {/block:ItemImage1}
+                        </div>
+                        <div id="itemSliderThumbnailArea">
+                            {block:NoItemImage1}
+                                <a data-slide-index="0" href=""><img src="{ItemNoImageURL}" alt=""></a>
+                            {/block:NoItemImage1}
+                            {block:ItemImage1}
+                                <div class="itemSliderThumbnailItemArea"><a data-slide-index="0" href=""><img src="{ItemImage1URL-146}" alt=""></a></div>
+                                {block:ItemImage2}<div class="itemSliderThumbnailItemArea"><a data-slide-index="1" href=""><img src="{ItemImage2URL-146}" alt=""></a></div>{/block:ItemImage2}
+                                {block:ItemImage3}<div class="itemSliderThumbnailItemArea"><a data-slide-index="2" href=""><img src="{ItemImage3URL-146}" alt=""></a></div>{/block:ItemImage3}
+                                {block:ItemImage4}<div class="itemSliderThumbnailItemArea"><a data-slide-index="3" href=""><img src="{ItemImage4URL-146}" alt=""></a></div>{/block:ItemImage4}
+                                {block:ItemImage5}<div class="itemSliderThumbnailItemArea"><a data-slide-index="4" href=""><img src="{ItemImage5URL-146}" alt=""></a></div>{/block:ItemImage5}
+                                {block:ItemImage6}<div class="itemSliderThumbnailItemArea"><a data-slide-index="5" href=""><img src="{ItemImage6URL-146}" alt=""></a></div>{/block:ItemImage6}
+                                {block:ItemImage7}<div class="itemSliderThumbnailItemArea"><a data-slide-index="6" href=""><img src="{ItemImage7URL-146}" alt=""></a></div>{/block:ItemImage7}
+                                {block:ItemImage8}<div class="itemSliderThumbnailItemArea"><a data-slide-index="7" href=""><img src="{ItemImage8URL-146}" alt=""></a></div>{/block:ItemImage8}
+                                {block:ItemImage9}<div class="itemSliderThumbnailItemArea"><a data-slide-index="8" href=""><img src="{ItemImage9URL-146}" alt=""></a></div>{/block:ItemImage9}
+                                {block:ItemImage10}<div class="itemSliderThumbnailItemArea"><a data-slide-index="10" href=""><img src="{ItemImage10URL-146}" alt=""></a></div>{/block:ItemImage10}
+                                {block:ItemImage11}<div class="itemSliderThumbnailItemArea"><a data-slide-index="11" href=""><img src="{ItemImage11URL-146}" alt=""></a></div>{/block:ItemImage11}
+                                {block:ItemImage12}<div class="itemSliderThumbnailItemArea"><a data-slide-index="12" href=""><img src="{ItemImage12URL-146}" alt=""></a></div>{/block:ItemImage12}
+                                {block:ItemImage13}<div class="itemSliderThumbnailItemArea"><a data-slide-index="13" href=""><img src="{ItemImage13URL-146}" alt=""></a></div>{/block:ItemImage13}
+                                {block:ItemImage14}<div class="itemSliderThumbnailItemArea"><a data-slide-index="14" href=""><img src="{ItemImage14URL-146}" alt=""></a></div>{/block:ItemImage14}
+                                {block:ItemImage15}<div class="itemSliderThumbnailItemArea"><a data-slide-index="15" href=""><img src="{ItemImage15URL-146}" alt=""></a></div>{/block:ItemImage15}
+                                {block:ItemImage16}<div class="itemSliderThumbnailItemArea"><a data-slide-index="16" href=""><img src="{ItemImage16URL-146}" alt=""></a></div>{/block:ItemImage16}
+                                {block:ItemImage17}<div class="itemSliderThumbnailItemArea"><a data-slide-index="17" href=""><img src="{ItemImage17URL-146}" alt=""></a></div>{/block:ItemImage17}
+                                {block:ItemImage18}<div class="itemSliderThumbnailItemArea"><a data-slide-index="18" href=""><img src="{ItemImage18URL-146}" alt=""></a></div>{/block:ItemImage18}
+                                {block:ItemImage19}<div class="itemSliderThumbnailItemArea"><a data-slide-index="19" href=""><img src="{ItemImage19URL-146}" alt=""></a></div>{/block:ItemImage19}
+                                {block:ItemImage20}<div class="itemSliderThumbnailItemArea"><a data-slide-index="20" href=""><img src="{ItemImage20URL-146}" alt=""></a></div>{/block:ItemImage20}
+                            {/block:ItemImage1}
+                        </div>
+                    </div>
+
+                    <div id="itemInformationArea">
+                        <!-- 商品ページの商品名 -->
+                        <span id="itemTitle">{ItemTitle}</span>
+
+                        <!-- 商品ページの金額 -->
+                        {block:NoItemProperPrice}
+                        <!-- 定価 -->
+                        <div id="itemPriceArea">
+                            <span class="itemPrice">{ItemPrice}</span>
+                        </div>
+                        {/block:NoItemProperPrice}
+
+                        {block:HasItemProperPrice}
+                        <!-- 割引 -->
+                        <div id="itemProperPriceArea">
+                            <span id="itemProperPrice">{ItemProperPrice}</span>
+                            <span class="itemPrice">{ItemPrice}</span>
+                            <small><span id="itemPageDiscountRate">{ItemDiscountRate}</span></small>
+                        </div>
+                        {/block:HasItemProperPrice}
+
+                        <!-- 商品ページのカートに入れるボタン -->
+                        <div id="itemPurchaseArea">
+                            {block:PurchaseForm}
+                            {ItemSelectTag}
+                            {PurchaseButton}
+                            {/block:PurchaseForm}
+                        </div>
+
+                        <!-- 商品ページの注意書き -->
+                        {ItemAttentionTag}
+                    </div>
+                </div>
+
+                <!-- 商品ページの説明 -->
+                <div id="itemDescriptionArea">{ItemDetail}</div>
+
+                <!-- 商品ページの通報リンク -->
+                <div id="itemIllegalReportArea">{IllegalReportTag}</div>
+            {/block:ItemPage}
+
+            {block:AboutPage}
+                <!-- Aboutページ -->
+                {block:LogoImage}<div id="aboutShotLogoArea">{LogoTag}</div>{/block:LogoImage}
+                <div id="aboutIntro">{ShopIntroduction}<br><br></div>
+            {/block:AboutPage}
+
+            <!-- Blog, Contact, PrivacyPolicy, Law -->
+            {PageContents}
+
+            <br>
+            {/block:ShopPublic}
+
+            {block:NotShopPublic}
+            {lang:NotShopPublicMessage}
+            {/block:NotShopPublic}
+        </div>
+    </main>
+
+    <footer>
+        <hr class="hrHeader">
+        <div id="footerSiteMapArea">
+            {block:LogoImage}
+            <div id="footerShopLogoArea"><a href="{IndexPageURL}">{LogoTag}</a></div>
+            {/block:LogoImage}
+
+            {block:AppsItemCategory}
+            <div id="footerCategoryArea">
+                <ul id="footerCategoryList">
+                {block:AppsItemCategoryCategories}
+                    <li class="footerCategoryItem"><a href="{AppsItemCategoryCategoryPageURL}">{AppsItemCategoryCategoryName}</a>
+                        {block:HasAppsItemCategoryMediumCategories}
+                            <ul id="footerMediumCategoryList">
+                                {block:AppsItemCategoryMediumCategories}
+                                    <li class="footerMediumCategoryItem"><a href="{AppsItemCategoryMediumCategoryPageURL}">{AppsItemCategoryMediumCategoryName}</a></li>
+                                {/block:AppsItemCategoryMediumCategories}
+                            </ul>
+                        {/block:HasAppsItemCategoryMediumCategories}
+                    </li>
+                {/block:AppsItemCategoryCategories}
+                </ul>
+            </div>
+            {/block:AppsItemCategory}
+
+            <div id="footerNavigatorArea">
+                <ul id="footerNavigatorList">
+                    <li><a href="{IndexPageURL}">トップページ</a></li>
+                    <li><a href="{AboutPageURL}">ショッピングガイド</a></li>
+                    <li><a href="{PrivacyPageURL}">{lang:Privacy}</a></li>
+                    <li><a href="{LawPageURL}">{lang:Law}</a></li>
+                    <li><a href="{ContactPageURL}">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="footerCopyrightArea"><small>&copy; {ShopName}</small></div>
+    </footer>
+</body>
+
+</html>
