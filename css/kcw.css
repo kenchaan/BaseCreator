@@ -1,14 +1,18 @@
 /* 全般 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, object, iframe, pre, code, p, blockquote, form, fieldset, legend, table, th, td, caption, tbody, tfoot, thead, article, aside, figure, footer, header, hgroup, menu, nav, section, audio, video, canvas {
+    margin: 0;
+    padding: 0;
+}
+
 .hrHeader {
     margin: 0;
+    padding: 0;
 }
 
 body {
     color: var(--text-color);
     font-family: "M PLUS Rounded 1c";
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 body.menuOpened {
@@ -27,7 +31,7 @@ header {
     color: var(--header-text-color);
     width: 100%;
     position: fixed;
-    z-index: 9999;
+    z-index: 100;
 }
 
 #headerMainMenuArea {
@@ -51,7 +55,6 @@ header {
     border: none;
     cursor: pointer;
     margin: calc((var(--header-height) - 40px) / 2) 10px 0;
-    padding: 0;
 }
 
 #headerHamburgerMenuArea #hamburgerMenuButton #hamLineTop,
@@ -103,8 +106,6 @@ header {
     width: 100%;
     height: calc(100% - var(--header-height));
     top: var(--header-height);
-    margin: 0;
-    padding: 0;
     transition: all .5s;
 }
 
@@ -118,8 +119,6 @@ header {
     list-style: none;
     border: 1px solid var(--header-text-color);
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 #headerHamburgerMenuArea #hamburgerList>li {
@@ -144,8 +143,6 @@ header {
 
 #headerHamburgerMenuArea #hamburgerList #hamAboutSnsList {
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 #headerHamburgerMenuArea #hamburgerList #hamAboutSnsList li {
@@ -179,7 +176,6 @@ header {
     align-items: flex-start;
     text-align: center;
     height: var(--header-height);
-    margin: 0;
     padding: 12px 0 0;
 }
 
@@ -242,7 +238,6 @@ header {
     justify-content: flex-end;
     margin-top: 5px;
     margin-right: 10px;
-    padding: 0;
 }
 
 #baseMenu img {
@@ -253,7 +248,7 @@ header {
 main {
     width: 100%;
     background-color: var(--background-color);
-    padding-top: calc(var(--header-height) + 10px);
+    padding-top: var(--header-height);
 }
 
 main a,
@@ -299,13 +294,10 @@ footer a:hover {
 #footerSiteMapArea #footerCategoryArea #footerCategoryList,
 #footerSiteMapArea #footerNavigatorArea #footerNavigatorList {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
 #footerSiteMapArea #footerCategoryArea #footerMediumCategoryList {
     list-style-type: none;
-    margin: 0;
     padding-left: 25px;
 }
 
@@ -319,8 +311,9 @@ footer a:hover {
 /* トップページ/カテゴリページ/検索結果ページ */
 #mainIndexPageArea {
     width: var(--page-width);
-    margin: auto;
     text-align: center;
+    margin: auto;
+    padding-top: 10px;
 }
 
 /* トップページ/カテゴリページ/検索結果ページの検索ボタン */
@@ -421,14 +414,9 @@ footer a:hover {
 }
 
 /* カテゴリページのパンくず */
-#mainIndexPageArea #breadcrumbArea {
-    margin: 0;
-}
-
 #mainIndexPageArea #breadcrumbArea ul {
     display: flex;
     list-style: none;
-    margin: 0;
 }
 
 #mainIndexPageArea #breadcrumbArea li:after {
@@ -508,7 +496,7 @@ footer a:hover {
 
 /* 商品ページの上部 */
 #mainItemPageArea #itemMainArea {
-    margin-top: 20px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -653,13 +641,22 @@ footer a:hover {
 #mainItemPageArea #itemMainArea #itemInformationArea #itemAttention .attention {
     font-size: 0.8em;
     color: var(--additional-text-color);
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
 #mainItemPageArea #itemMainArea #itemInformationArea #itemAttention .attention a {
     color: var(--additional-text-color);
 }
+
+#mainItemPageArea #itemMainArea #itemInformationArea #itemAttention #postageInfo {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+}
+
+#mainItemPageArea #itemMainArea #itemInformationArea #itemAttention #postageInfo .shippingList__title {
+    color: var(--header-text-color);
+    border-bottom: 1px dotted var(--header-text-color)
+}
+
 
 /* 商品ページの下部 */
 #mainItemPageArea #itemDescriptionArea {
@@ -680,6 +677,7 @@ footer a:hover {
 #mainOtherPageArea {
     width: var(--page-width);
     margin: auto;
+    padding-top: 10px;
 }
 
 /* Aboutページ */
@@ -797,6 +795,7 @@ footer a:hover {
 
     /* 商品ページの上部 */
     #mainItemPageArea #itemMainArea {
+        padding-top: 0;
         display: block;
     }
 
