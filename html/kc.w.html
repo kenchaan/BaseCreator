@@ -88,7 +88,7 @@
             border: 0px dotted yellow;
         }
     </style>
-    <link href="https://basefile.akamaized.net/kcw-handcrafted-jp/62d895735f329/kcw.css" rel="stylesheet">
+    <link href="https://basefile.akamaized.net/kcw-handcrafted-jp/632119c0a24ea/kcw.css" rel="stylesheet">
 
     <style>
         @media (max-width:1160px) {
@@ -347,7 +347,7 @@
                 <!-- 商品ページの画像 -->
                 <div id="itemMainArea">
                     <div id="itemPageImageArea">
-                        <div id="itemSliderArea">
+                        <div id="itemSliderArea" class="manualSliderArea">
                             {block:NoItemImage1}
                                 <img src="{ItemNoImageURL}" alt="">
                             {/block:NoItemImage1}
@@ -465,8 +465,25 @@
     <footer>
         <hr class="hrHeader">
         <div id="footerSiteMapArea">
+            <div id="footerSnsArea">
+                <ul id="footerSnsList">
+                    {block:ShopInstagramId}<li><a href="https://www.instagram.com/{ShopInstagramId}" target="_blank"><img src="/img/shop/igicon.png"></a></li>{/block:ShopInstagramId}
+                    {block:ShopTwitterId}<li><a href="https://twitter.com/{ShopTwitterId}" target="_blank"><img src="/img/shop/twicon.png"></a></li>{/block:ShopTwitterId}
+                    {block:ShopLineId}<li><a href="https://line.me/R/ti/p/%40{ShopLineId}" target="_blank"><img src="/img/shop/lineicon.png"></a></li>{/block:ShopLineId}
+                    {block:ShopFacebookId}<li><a href="https://www.facebook.com/{ShopFacebookId}" target="_blank"><img src="/img/shop/fbicon.png"></a></li>{/block:ShopFacebookId}
+                    {block:ShopYoutubeId}<li><a href="{ShopYoutubeId}" target="_blank"><img src="/img/shop/youtubeicon.png"></a></li>{/block:ShopYoutubeId}
+                    {block:ShopTiktokId}<li><a href="https://tiktok.com/@{ShopTiktokId}" target="_blank"><img src="/img/shop/tiktokicon_black.png"></a></li>{/block:ShopTiktokId}
+                    {block:ShopNoteId}<li><a href="https://note.com/{ShopNoteId}" target="_blank"><img src="/img/shop/noteicon.png"></a></li>{/block:ShopNoteId}
+                    {block:ShopAmebaId}<li><a href="https://ameblo.jp/{ShopAmebaId}" target="_blank"><img src="/img/shop/ambicon.png"></a></li>{/block:ShopAmebaId}
+                </ul>
+            <hr class="hrHeder">
+            </div>
+
+
             {block:LogoImage}
-            <div id="footerShopLogoArea"><a href="{IndexPageURL}">{LogoTag}</a></div>
+            <div id="footerShopLogoArea">
+                <a href="{IndexPageURL}">{LogoTag}</a>
+            </div>
             {/block:LogoImage}
 
             {block:AppsItemCategory}
