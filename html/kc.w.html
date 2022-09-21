@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="copyright" content="ken_chaaay">
@@ -11,12 +9,13 @@
         content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <meta name="description" content="田舎のお兄さんがゆるゆるとレザークラフトをしています。">
-    <title>kc.w</title>
+    <title>kc.w - handmade leather works</title>
 
     {FaviconTag}
     {BackgroundTag}
     {GoogleAnalyticsTag}
 
+    <!-- デザインオプション -->
     {block:Hidden}
     <meta name="color:backgroundColor" content="" label="背景色">
     <meta name="color:textColor" content="" label="テキスト文字色">
@@ -38,10 +37,14 @@
     <meta name="image:indexPageSlideImage5" content="" label="トップページスライド画像5">
     {/block:Hidden}
 
-    <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+    <!-- フォント -->
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
 
+    <!-- CSSのリセット -->
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+
+    <!-- CSSの変数の設定 -->
     <style>
         :root {
             /* 全般 */
@@ -83,56 +86,26 @@
             --item-column-num: 3;
             --item-space: 30px;
         }
+    </style>
 
+    <!-- 自作CSS -->
+    <link href="https://basefile.akamaized.net/kcw-handcrafted-jp/632119c0a24ea/kcw.css" rel="stylesheet">
+
+    <!-- 確認用CSS -->
+    <style>
         div, ul {
             border: 0px dotted yellow;
         }
-    </style>
-    <link href="https://basefile.akamaized.net/kcw-handcrafted-jp/632119c0a24ea/kcw.css" rel="stylesheet">
 
-    <style>
         @media (max-width:1160px) {
         }
     </style>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            $('#hamburgerMenuButton').on('click', function () {
-                $('#hamburgerMenuButton').toggleClass('opened');
-                $('#hamburgerMenuArea').toggleClass('opened');
-                $('body').toggleClass('menuOpened');
-            });
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.autoSliderArea').bxSlider({
-                auto: true,
-                pause: 5000,
-                nextText: '',
-                prevText: ''
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('#itemSliderArea').bxSlider({
-                auto: false,
-                nextText: '',
-                prevText: '',
-                pagerCustom: '#itemSliderThumbnailArea'
-            });
-        });
-    </script>
 </head>
 
 <body>
     <header>
         <div id="headerMainMenuArea">
+            <!-- ハンバーガーメニュー -->
             <div id="headerHamburgerMenuArea">
                 <button id="hamburgerMenuButton">
                     <span id="hamLineTop"></span>
@@ -177,10 +150,12 @@
                 </div>
             </div>
 
+            <!-- ショップロゴ -->
             <div id="headerShopLogoArea">
                 <a href="{IndexPageURL}">{LogoTag}</a>
             </div>
 
+            <!-- ナビゲーションメニュー -->
             <div id="headerNavigatorArea">
                 <nav>
                     <ul id="navigatorList">
@@ -222,6 +197,7 @@
                 </nav>
             </div>
 
+            <!-- BASEメニュー -->
             {BASEMenuTag}
         </div>
         <hr class="hrHeader">
@@ -231,8 +207,8 @@
         <div id="{block:IndexPage}mainIndexPageArea{/block:IndexPage}{block:ItemPage}mainItemPageArea{/block:ItemPage}{block:NotIndexPage}{block:NotItemPage}mainOtherPageArea{/block:NotItemPage}{/block:NotIndexPage}">
             {block:ShopPublic}
             {block:IndexPage}
-                {block:AppsSearch}
                 <!-- トップページ/カテゴリページ/検索結果ページの検索ボックス -->
+                {block:AppsSearch}
                 <div id="searchArea">
                     <form action="{SearchPageURL}" method="get">
                         <input id="searchText" type="text" name="q" value="{IndexPageSearch}" autocomplete="off">
@@ -516,6 +492,47 @@
         </div>
         <div id="footerCopyrightArea"><small>&copy; {ShopName}</small></div>
     </footer>
-</body>
 
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- ハンバーガーメニュー -->
+    <script type="text/javascript">
+        $(function () {
+            $('#hamburgerMenuButton').on('click', function () {
+                $('#hamburgerMenuButton').toggleClass('opened');
+                $('#hamburgerMenuArea').toggleClass('opened');
+                $('body').toggleClass('menuOpened');
+            });
+        });
+    </script>
+
+    <!-- スライド -->
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.autoSliderArea img:first').imagesLoaded(function(){
+                $('.autoSliderArea').bxSlider({
+                    auto: true,
+                    pause: 5000,
+                    nextText: '',
+                    prevText: ''
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $('#itemSliderArea img:first').imagesLoaded(function(){
+                $('#itemSliderArea').bxSlider({
+                    auto: false,
+                    nextText: '',
+                    prevText: '',
+                    pagerCustom: '#itemSliderThumbnailArea'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
