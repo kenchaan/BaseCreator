@@ -511,7 +511,7 @@
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript">
-        $(function(){
+        $(window).on('load', function(){
             $('.autoSliderArea img:first').imagesLoaded(function(){
                 $('.autoSliderArea').bxSlider({
                     auto: true,
@@ -523,7 +523,7 @@
         });
     </script>
     <script type="text/javascript">
-        $(function(){
+        $(window).on('load', function(){
             $('#itemSliderArea img:first').imagesLoaded(function(){
                 $('#itemSliderArea').bxSlider({
                     auto: false,
